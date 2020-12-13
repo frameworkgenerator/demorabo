@@ -2,7 +2,7 @@ import base64 from 'base-64'
 import { notification } from 'antd'
 
 export default async function GetProjects() {
-  const response = await fetch('http://app-springboot-postgresql:9009/v1/project/getall', {
+  const response = await fetch('http://localhost:9009/v1/project/getall', {
     headers: {
       mode: 'cors',
       Accept: 'application/json',
