@@ -2,7 +2,7 @@ FROM node:12 as builder
 RUN mkdir -p ~/app
 COPY . /app
 WORKDIR /app
-RUN npm run install
+RUN npm install
 RUN npm run build
 
 FROM nginx:1.15 as production
