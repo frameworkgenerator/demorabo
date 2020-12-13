@@ -4,7 +4,7 @@ import base64 from 'base-64'
 export default async function DeleteProjects(data) {
   console.log('try to set project')
   console.log(JSON.stringify(data))
-  const result = await fetch(`http://localhost:9009/v1/project/deletebyid/${data.id}`, {
+  const result = await fetch(`http://app-springboot-postgresql:9009/v1/project/deletebyid/${data.id}`, {
     method: 'POST',
     headers: {
       mode: 'cors',
