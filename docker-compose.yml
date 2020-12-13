@@ -1,47 +1,33 @@
 version: '3'
 services:
-  web:
+  db:
+    image: "postgres"
+    container_name: "postgres"
     environment:
-      - PORT=80
-    container_name: app_frontend
-    build:
-      context: app_frontend/
-      dockerfile: Dockerfile.frontend
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
     ports:
-      - "8082:80"
-    network:
-      - ventussuite
+      - "5432:5432"
+    volumes:
+      - ./db-data:/var/lib/postgresql/data
+
   backend:
-    environment:
-      - PORT=9009
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://pgdb:5432/postgres
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=postgres
     container_name: app-springboot-postgresql
     build:
       context: app_backend/
       dockerfile: Dockerfile.backend
     ports:
-      - "9009:9009"
-    network:
-      - ventussuite
+      - "8080:8080"
     depends_on:
-      - dbpostgresql
-  dbpostgresql:
-    image: postgres
-    ports:
-      - "5432:5432"
-    network:
-      - ventussuite
-    container_name: pgdb
-    volumes:
-      - database-data:/var/lib/postgresql/data/
-    environment:
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_DB=postgres
+      - db
 
-volumes:
-  database-data:
-networks:
-  ventussuite:
+  frontend:
+    build:
+      context: app_frontend/
+      dockerfile: Dockerfile.frontend
+    container_name: "frontend"
+    ports:
+      - "8082:80"
+    depends_on:
+      - backend
