@@ -1,0 +1,8 @@
+#docker build -t app_backend .
+#docker run -p 9009:80 -d --name app_backend app_backend
+#docker logs $id
+FROM openjdk:11-jdk
+VOLUME /tmp
+ARG JAR_FILE
+ADD ./target/schema-based-multi-tenancy-1.0-SNAPSHOT.jar app.jar
+CMD ["java","-Dserver.port=${PORT}","-Xms32M","-Xmx64M","-jar","app.jar"]

@@ -1,0 +1,25 @@
+server:
+  port: 9009
+spring:
+  datasource:
+    continue-on-error: true
+    hikari:
+      maximum-pool-size: 10
+    initialization-mode: always
+    password: postgres
+    url: jdbc:postgresql://pgdb:5432/postgres?currentSchema=public
+    username: postgres
+  flyway:
+    baseline-on-migrate: true
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    serialization:
+      fail-on-empty-beans: false

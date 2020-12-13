@@ -1,0 +1,34 @@
+version: '3'
+services:
+  web:
+    environment:
+      - PORT=80
+    container_name: app_frontend
+    build:
+      context: app_frontend/
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "8082:80"
+  backend:
+    environment:
+      - PORT=9009
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://pgdb:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+    container_name: app-springboot-postgresql
+    build:
+      context: app_backend/
+      dockerfile: Dockerfile.backend
+    ports:
+      - "9009:9009"
+    depends_on:
+      - dbpostgresql
+  dbpostgresql:
+    image: postgres
+    ports:
+      - "5432:5432"
+    container_name: pgdb
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
