@@ -1,0 +1,13 @@
+[
+  {
+    "title": "OBJECTNAME",
+    "dataIndex": "objectname",
+    "editable": true
+  },
+  {
+    "title": "DEFAULTVALUE",
+    "dataIndex": "defaultvalue",
+    "editable": true
+  }
+]
+

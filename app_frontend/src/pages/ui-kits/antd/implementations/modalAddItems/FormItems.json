@@ -1,0 +1,38 @@
+[
+  {
+    "label": "CustomerId",
+    "name": "customerId",
+    "required": true
+  },
+  {
+    "label": "Description",
+    "name": "description",
+    "required": true
+  },
+  {
+    "label": "Name",
+    "name": "name",
+      "required": true
+
+  },
+  {
+    "label": "Path",
+    "name": "path",
+      "required": true
+  },
+  {
+    "label": "ProjectId",
+    "name": "projectId",
+      "required": true
+  },
+  {
+    "label": "Selector",
+    "name":"selector",
+      "required": true
+  },
+  {
+    "label": "Type",
+    "name": "type",
+    "required": true
+  }
+]

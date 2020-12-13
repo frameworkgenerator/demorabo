@@ -1,0 +1,7 @@
+{
+  "post": "service/SET_PROJECTS",
+  "get": "service/GET_PROJECTS",
+  "delete": "service/DELETE_PROJECTS",
+  "child": "service/GET_DATASETS"
+}
+

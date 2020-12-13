@@ -1,0 +1,7 @@
+{
+  "post": "service/SET_FIELDS",
+  "get": "service/GET_FIELDS",
+  "delete": "service/DELETE_FIELDS",
+  "child": "service/GET_FIELDS"
+}
+

@@ -1,0 +1,10 @@
+{
+  "id": 999,
+  "modifier": "MODIFIER",
+  "objectaction": "ONE",
+  "objectname": "OBJECTNAME",
+  "objectselector": "SELECTOR",
+  "valuelength": "255",
+  "valuerange": "0-20",
+  "valuetype": "STRING"
+}
