@@ -48,6 +48,7 @@
     "firebase": "^7.21.1",
     "history": "^4.10.1",
     "immutable": "^4.0.0-rc.12",
+    "isexe": "^2.0.0",
     "lodash": "^4.17.15",
     "logrocket": "^1.0.8",
     "moment": "2.24.0",
