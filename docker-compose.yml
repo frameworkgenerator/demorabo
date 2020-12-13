@@ -9,6 +9,8 @@ services:
       dockerfile: Dockerfile.frontend
     ports:
       - "8082:80"
+    network:
+      - ventussuite
   backend:
     environment:
       - PORT=9009
@@ -21,12 +23,16 @@ services:
       dockerfile: Dockerfile.backend
     ports:
       - "9009:9009"
+    network:
+      - ventussuite
     depends_on:
       - dbpostgresql
   dbpostgresql:
     image: postgres
     ports:
       - "5432:5432"
+    network:
+      - ventussuite
     container_name: pgdb
     volumes:
       - database-data:/var/lib/postgresql/data/
@@ -38,6 +44,4 @@ services:
 volumes:
   database-data:
 networks:
-  default:
-    external:
-      name: ventussuite
+  ventussuite:
