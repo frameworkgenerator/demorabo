@@ -13,7 +13,7 @@ services:
       - ./db-data:/var/lib/postgresql/data
 
   backend:
-    container_name: app-springboot-postgresql
+    container_name: "backend"
     build:
       context: app_backend/
       dockerfile: Dockerfile.backend
