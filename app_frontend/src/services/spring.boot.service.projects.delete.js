@@ -10,7 +10,6 @@ export default async function DeleteProjects(data) {
       mode: 'cors',
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': 'http://localhost:3000',
       Authorization: `Basic ${base64.encode(`${sessionStorage.getItem('email')}:${sessionStorage.getItem('password')}`)}`,
     },
     body: JSON.stringify(data),
