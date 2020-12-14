@@ -8,4 +8,4 @@ RUN mvn clean install
 
 FROM openjdk:11-jre-slim
 COPY --from=build ./app/target/schema-based-multi-tenancy-1.0-SNAPSHOT.jar app.jar
-CMD ["java","-Dserver.port=${PORT}","-Xms32M","-Xmx64M","-jar","app.jar"]
+CMD ["java","-Xms32M","-Xmx64M","-jar","app.jar"]
