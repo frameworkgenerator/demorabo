@@ -7,6 +7,7 @@ WORKDIR /app
 RUN mvn clean install
 
 FROM openjdk:11-jre-slim
+RUN apt-get update && apt-get install -y curl
 COPY --from=build ./app/target/schema-based-multi-tenancy-1.0-SNAPSHOT.jar app.jar
-EXPOSE 9009
+EXPOSE 80
 CMD ["java","-Xms32M","-Xmx64M","-jar","app.jar"]

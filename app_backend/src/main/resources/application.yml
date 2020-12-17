@@ -1,5 +1,5 @@
 server:
-  port: 9009
+  port: 80
 spring:
   datasource:
     continue-on-error: true

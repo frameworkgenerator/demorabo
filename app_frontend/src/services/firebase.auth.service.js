@@ -33,10 +33,9 @@ export async function createUser(data) {
   sessionStorage.setItem('tenant', data.tenant)
   function getCurrentUser() {
     return new Promise(() => {
-      fetch('http://backend:9009/users', {
+      fetch(`http://localhost/api/users`, {
         method: 'POST',
         headers: {
-          mode: 'cors',
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },

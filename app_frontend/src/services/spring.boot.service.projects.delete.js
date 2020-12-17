@@ -4,10 +4,9 @@ import base64 from 'base-64'
 export default async function DeleteProjects(data) {
   console.log('try to set project')
   console.log(JSON.stringify(data))
-  const result = await fetch(`http://backend/api/v1/project/deletebyid/${data.id}`, {
+  const result = await fetch(`http://localhost/api/project/deletebyid/${data.id}`, {
     method: 'POST',
     headers: {
-      mode: 'cors',
       Accept: 'application/json',
       'Content-Type': 'application/json',
       Authorization: `Basic ${base64.encode(`${sessionStorage.getItem('email')}:${sessionStorage.getItem('password')}`)}`,
